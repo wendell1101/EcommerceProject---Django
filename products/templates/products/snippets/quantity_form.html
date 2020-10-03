@@ -1,0 +1,14 @@
+{% url 'cart:add_quantity' product.slug as add_quantity_url %}
+{% url 'cart:minus_quantity' product.slug as minus_quantity_url %}
+<form method='POST' action='{{ action_url }}' class="cart-form"> 
+    {% csrf_token %}
+    {% if action_url == add_quantity_url %}
+    <a type="submit"><i class="fas fa-plus" style="color:#363b3f"></i></a>
+    {% else %}
+    <a type="submit"><i class="fas fa-minus" style="color:#363b3f"></i></a>
+    {% endif %}
+</form>
+
+<!-- <a href="{% url 'cart:add_quantity' product.slug %}"><i class="fas fa-plus" style="color:#363b3f"></i></a>
+
+<a href="{% url 'cart:minus_quantity' product.slug %}"><i class="fas fa-minus" style="color:#363b3f"></i></a> -->

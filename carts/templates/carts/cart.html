@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="margin-top:100px;min-height:60vh">
+    <div class="table-responsive">
+        <table class="table text-center">
+            {% if cart.products.all %}
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+                <th scope="col">Action</th>
+            
+            </tr>
+            </thead>
+            <tbody class="cart-body">
+            
+            {% for product in cart.products.all %}
+            <tr class="cart-row">
+                <td scope="row">{{ forloop.counter }}</td>
+                <td class="my-auto">{{ product.title }}</td>
+                <td>
+                    <img src="{{ product.image1.url }}" alt="product_image" style="width:70px;height:70px">
+                </td>
+                <td>
+                    {% csrf_token %}
+                    <a href="{% url 'cart:add_quantity' product.slug %}" class="add-quantity-btn"><i class="fas fa-plus" style="color:#363b3f"></i></a>
+                    <span class="ml-1 mr-1 quantity">{{ product.quantity }}</span>
+                    {% csrf_token %}
+                    <a href="{% url 'cart:minus_quantity' product.slug %}" class="minus-quantity-btn"><i class="fas fa-minus" style="color:#363b3f"></i></a>
+                </td>
+                <td>
+                    {% if product.discount_percent %}
+                        PHP {{ product.get_discounted_price|floatformat:2 }}
+                    {% else %}
+                        PHP {{ product.price|floatformat:2 }}
+                    {% endif %}
+                </td>
+              
+                <td>
+                    <span class="total">PHP {{product.get_final_total_price|floatformat:2 }}</span>                  
+                </td>
+                <td>
+                    <!-- {% include 'products/snippets/update_cart.html' with remove_icon="fas fa-trash" object=product%} -->
+                    {% csrf_token %}
+                    <a href="{% url 'cart:remove_product_from_cart' product.slug %}" class="remove-product-from-cart">
+                        <i class="fas fa-trash" style="color:red"></i></a>
+                </td>
+                
+            </tr>
+           
+            {% endfor%}
+            <tr class="ml-auto">
+                <th  class="">Final Total</th>
+                <td colspan="4" class="ml-auto final-total"> PHP {{ cart.get_cart_total|floatformat:2 }} </td>
+                <td><a href="{% url 'index' %}" class="btn btn-primary">Continue Shopping</a></td>
+                <td><a href="{% url 'address:billing' %}" class="btn btn-success">Checkout</a></td>
+            </tr>
+            {% else %}
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Total</th>
+            
+            </tr>
+            </thead>
+            <td><h2 class="lead"> Cart is empty</h2></td>
+            <td class="ml-auto" colspan="2"><a href="{% url 'index' %}" class="btn btn-primary">Continue Shopping</a></td>
+            {% endif %}
+            
+
+           
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

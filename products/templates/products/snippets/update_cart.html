@@ -1,0 +1,22 @@
+<form method='POST' action='{% url "cart:update" object.slug %}' class="cart-form"> 
+    {% csrf_token %}
+    <input type='hidden' name='product_id' value='{{ object.id }}' /> 
+    {% if remove_icon %} 
+    <button class="border-0 bg-transparent btn-sm text-danger" type="submit">
+        <i class="fas fa-trash"></i></button> 
+    {% else %}
+        <span class="cart-btn">
+        {% if object in cart.products.all %}   
+        <button type='submit' class="btn btn-danger btn-md my-0 p remove-cart-btn shadow">Remove from cart
+            <i class="fas fa-shopping-cart ml-1"></i></button>
+        </button>
+        {% else %}
+            <button type='submit' class="btn btn-primary btn-md my-0 p add-cart-btn shadow">Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i></button>
+            </button>
+        {% endif%}
+        </span>
+    {% endif %}
+    
+    
+</form>

@@ -1,0 +1,65 @@
+<!-- Navbar -->
+{% load static %}
+{% url 'index' as home_url %}
+{% url 'cart:home' as cart_url %}
+{% url 'accounts:logout' as logout_url %}
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar" >
+    <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="{{ home_url }}">
+        <img src="{% static 'img/logo.png' %}" alt="C-TECH" style=" width:100px">
+        </a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active">
+            <a class="nav-link waves-effect" href="#">Home
+                <span class="sr-only">(current)</span>
+            </a>
+            </li> -->
+           
+        </ul>
+
+        <!-- Right -->
+        <ul class="navbar-nav">
+            
+            {% if request.path != home_url %}
+            <li class="nav-item">
+                {% include 'search/snippets/search_form.html' %}
+            </li>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{{ logout_url }}">Logout
+                    </a>
+                </li>
+            {% endif %}
+            <li class="nav-item {% if request.path == cart_url %} active {% endif%}">
+                <a href="{{ cart_url }}" class="nav-link waves-effect">
+                    <span class="badge red z-depth-1 mr-1 cart-count"> 
+                        {% if request.session.cart_items_count > 0%} 
+                            {{ request.session.cart_items_count }} 
+                        {% else %} 0
+                        {% endif %}
+                    </span>
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </li>
+        </ul>
+
+        </div>
+
+    </div>
+</nav>
+<!-- Navbar -->

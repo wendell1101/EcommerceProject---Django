@@ -1,0 +1,48 @@
+html,
+body,
+header,
+.carousel {
+  height: 60vh;
+}
+
+@media (max-width: 740px) {
+
+  html,
+  body,
+  header,
+  .carousel {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+
+  html,
+  body,
+  header,
+  .carousel {
+    height: 100vh;
+  }
+}
+
+.btn{
+  background:#fba55f;
+}
+.btn-primary{
+  background:#fba55f!important;
+}
+
+.map-container{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+  }
+  .map-container iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+  }
+

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container" style="margin-top:100px;width:100%;min-height:55vh">
+        {% if query %}
+        <div class="mb-2">
+            <p>Results for <b>'{{query}}'</b></p>
+        </div>
+        {% endif %}
+    
+        
+        <div class="row text-center">
+            {% if products %}
+            {% for product in products%}
+          
+                {% include 'products/snippets/product_card.html' with product=product%}      
+            {% endfor %}
+            {% else %}
+            <div class="col-12 text-left">
+                <h4 class="text-lead">No results found</h4>
+            </div>
+            {% endif %}  
+        </div>
+        
+    </div>
+    
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
