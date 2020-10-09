@@ -3,22 +3,18 @@
 {% load widget_tweaks %}
 {% block content %}
   <!--Main layout-->
-<main class="mt-5 pt-4">
-  <div class="container wow fadeIn">
-
-    <!-- Heading -->
-    <h2 class="my-5 h2 text-center">Finalize Checkout</h2>
-
+<main style="margin-top:100px">
+  <div class="container wow fadeIn ">
     <!--Grid row-->
     <div class="row">
 
       <!--Grid column-->
-      <div class="col-md-8 mx-auto mb-4">
-
+      <div class="col-md-8 mx-auto mb-4 card card-body">
+        <h2 class="my-5 h2 text-center">Finalize Checkout</h2>
         <!-- Heading -->
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-muted">Your cart</span>
-          <span class="badge badge-secondary badge-pill">{{cart.products.count}}</span>
+          <span class="badge badge-warning badge-pill">{{cart.products.count}}</span>
         </h4>
         {% if cart.products.count > 0 %}
         

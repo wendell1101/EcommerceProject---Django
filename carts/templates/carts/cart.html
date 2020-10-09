@@ -58,21 +58,10 @@
                 <th  class="">Final Total</th>
                 <td colspan="4" class="ml-auto final-total"> PHP {{ cart.get_cart_total|floatformat:2 }} </td>
                 <td><a href="{% url 'index' %}" class="btn btn-primary">Continue Shopping</a></td>
-                <td><a href="{% url 'address:billing' %}" class="btn btn-success">Checkout</a></td>
+                <td><a href="{% url 'address:billing' %}" class="btn btn-warning">Checkout</a></td>
             </tr>
             {% else %}
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Image</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-                <th scope="col">Discount</th>
-                <th scope="col">Total</th>
             
-            </tr>
-            </thead>
             <td><h2 class="lead"> Cart is empty</h2></td>
             <td class="ml-auto" colspan="2"><a href="{% url 'index' %}" class="btn btn-primary">Continue Shopping</a></td>
             {% endif %}

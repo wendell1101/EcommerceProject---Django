@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="row" style="margin-top:100px">
-    <div class="col-md-5 mx-auto">
+    <div class="col-md-5 mx-auto align-items-center justify-content-center" style="min-height: 55vh;">
         <form method="POST" action="{% url 'accounts:logout' %}">
             <legend>Log out</legend>
             <fieldset>

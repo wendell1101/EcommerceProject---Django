@@ -1,4 +1,5 @@
 import math
+from datetime import timedelta
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 from ecommerce_project.utils import unique_order_id_generator
@@ -11,6 +12,7 @@ ORDER_STATUS = (
     ('created','CREATED'),
     ('paid','PAID'),
     ('shipped','SHIPPED'),
+    ('picked_up','PICKED UP'),
 )
 PAYMENT_TYPE = (
     ('cod','CASH ON DELIVERY'),
@@ -32,6 +34,14 @@ class Order(models.Model):
     
     def __str__(self):
         return self.order_id
+    
+   
+    # def delivery_date(self):
+    #     self.ordered_date += timedelta(days=7,hours=0)
+    #     delivery_time = self.ordered_date
+    #     return delivery_time
+    
+    
 
 
 #generate order_id

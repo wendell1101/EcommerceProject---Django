@@ -1,6 +1,50 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="row container" style="margin-top:100px">
-        <h1> This is payment page</h1>
+<div class="container" style="margin-top:100px">
+    <div class="col-10 mx-auto "style="min-height:60vh">
+        <h1>Pay Now</h1>
+   
+	<div id="paypal-button-container"></div>
+
+	<!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AXElrOpj96i_dRP762iI35cknK34chPZiZoAmWONHOvwLoo4PypmDKyDOBnOGr9gyBQySdrU4mrpG8x6&currency=PHP"></script>
+
+
+	<script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+			style: {
+                color:  'blue',
+                shape:  'rect',
+                label:  'pay',
+                height: 40
+            },
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '{{ order_total }}'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                    window.location.href="/order/progress/"
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
     </div>
-{% endblock content%}
+    
+</div>
+
+{% endblock content %}

@@ -107,11 +107,23 @@ def checkout(request):
                     order_total         = cart_obj.get_cart_total(),
                     payment_type        = payment_type,
                 )
+                order.status = 'created'
+                
                 order.save()
                 request.session['order_id'] = order.order_id
-                return redirect('order:success')
-            
-            if payment_type == 'paypal':
+                return redirect('order:progress')
+            elif payment_type == 'paypal':     
+                order = Order(
+                    customer_profile    = customer_profile,
+                    cart                = cart_obj,
+                    billing_address     = BillingAddress.objects.filter(customer_profile=customer_profile).first(),
+                    shipping_address    = ShippingAddress.objects.filter(customer_profile=customer_profile).first(),
+                    status              = 'created',
+                    order_total         = cart_obj.get_cart_total(),
+                    payment_type        = payment_type,
+                )
+                order.save()        
+                request.session['order_id'] = order.order_id
                 return redirect('payment:paypal')
             
     except ObjectDoesNotExist:

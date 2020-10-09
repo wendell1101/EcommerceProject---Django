@@ -8,25 +8,6 @@ $(document).ready(()=>{
 
 
 
-     // REFRESH CART_COUNT
-    console.log(window.location.pathname)
-    orderSuccessUrl = '/order/success/'
-    
-    const refresh_cart_count = () =>{
-        $.ajax({
-            url: '/order/success/',
-            method : 'GET',
-            data: {},
-            success: (data) => {
-                cartItemCount.text(data.cart_items_count)
-                
-            },
-            error: (error) => {
-                console.log('error: ',error)
-            }
-        })
-        
-    }
 
 
     updateCartForm.submit((e)=>{
@@ -60,7 +41,15 @@ $(document).ready(()=>{
                 console.log(error)
             }
         })
+        
+        
     })
+
+    //REFRESH CART COUNT
+
+    orderProgressUrl = "{% url 'order:progress' %}";
+    path = window.location.pathname;
+    
 
    
     

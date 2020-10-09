@@ -41,6 +41,10 @@
             {% endif %}
             {% if user.is_authenticated %}
                 <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{% url 'order:list' %}">Orders
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link waves-effect" href="{{ logout_url }}">Logout
                     </a>
                 </li>

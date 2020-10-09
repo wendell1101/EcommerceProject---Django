@@ -1,0 +1,55 @@
+{% extends 'admin_panel/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row card card-body">
+        <div class="col-12" >
+            <h4>Customers
+                <a href="#" class="mr-3">
+                    <i class="fas fa-plus-square"></i>
+                </a>
+            </h4>
+            
+           
+        </div>
+        <div class="col-12 ">
+            {% if customers %}
+            <div class="table-responsive">
+                <table class="table ">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Fullname</th>
+                      <th scope="col">Email</th>
+                      
+                      <th scope="col">Action</th>
+                    
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for customer in customers %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>{{ customer.user.get_full_name }}</td>
+                      <td>{{ customer.user.email }}</td>
+                      <td>
+                        <a href="#">
+                            <i class="fas fa-trash text-danger mr-2"></i>
+                            <i class="fas fa-edit text-warning"></i>
+                        </a>
+                     </td>
+                     
+                     
+                    </tr>
+                    {% endfor%}
+                  </tbody>
+                </table>
+              </div>
+            {% else %}
+            <h4 class="text-lead"> No results found </h4>
+            {% endif %}
+        </div>
+    </div>
+    
+</div>
+{% endblock content %}

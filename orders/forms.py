@@ -6,6 +6,7 @@ PAYMENT_TYPE=(
     ('paypal','PAYPAL'),
 )
 
+
 class OrderForm(forms.ModelForm):
     payment_type = forms.ChoiceField(
         widget=forms.RadioSelect,
@@ -26,3 +27,4 @@ class OrderForm(forms.ModelForm):
             'order_total',
             'payment_type',
         )
+       
