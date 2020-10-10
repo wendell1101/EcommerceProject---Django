@@ -31,10 +31,12 @@ header,
 .btn-primary{
   background:#fba55f!important;
 }
-.btn-outline-primary{
+.pagination-box{
   background:#fff!important;
+  padding:5px 8px;
   color:#fba55f!important;
   border:2px solid #fba55f!important;
+  margin: 0 5px!important;
 }
 
 .map-container{

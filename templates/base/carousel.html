@@ -1,5 +1,6 @@
+{% load static %}
 <!--Carousel Wrapper-->
-<div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel" data-interval="3000">
+<div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel" data-interval="3000" style="margin-top:50px">
 
     <!--Indicators-->
     <ol class="carousel-indicators">
@@ -14,7 +15,7 @@
 
         <!--First slide-->
         <div class="carousel-item active">
-        <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%282%29.jpg'); background-repeat: no-repeat; background-size: cover;">
+        <div class="view" style="background-image: url({% static 'img/carousel/laptop-bg-2.jpg' %}); background-repeat: no-repeat; background-size: cover;background-position:center">
 
             <!-- Mask & flexbox options-->
             <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -34,9 +35,9 @@
                     Aliquid neque minima itaque esse quia eos rem voluptatibus, unde amet ex.</strong>
                 </p>
 
-                <a  href="#" class="btn btn-outline-white btn-lg">
-                Start Shopping Now
-                </a>
+                <h2 class="text-white mx-auto text-decoration-underline border-bottom" style="width:500px">
+                Laptops
+                </h2>
             </div>
             <!-- Content -->
 
@@ -49,7 +50,7 @@
 
         <!--Second slide-->
         <div class="carousel-item">
-        <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%283%29.jpg'); background-repeat: no-repeat; background-size: cover;">
+            <div class="view" style="background-image: url({% static 'img/carousel/ipad.jpg' %}); background-repeat: no-repeat; background-size: cover;background-position:center">
 
             <!-- Mask & flexbox options-->
             <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -69,9 +70,9 @@
                         Aliquid neque minima itaque esse quia eos rem voluptatibus, unde amet ex.</strong>
                     </p>
     
-                    <a  href="#" class="btn btn-outline-white btn-lg">
-                    Start Shopping Now
-                    </a>
+                    <h2 class="text-white mx-auto text-decoration-underline border-bottom" style="width:500px">
+                        Mobile Phones
+                    </h2>
             </div>
             <!-- Content -->
 
@@ -84,7 +85,7 @@
 
         <!--Third slide-->
         <div class="carousel-item">
-        <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%285%29.jpg'); background-repeat: no-repeat; background-size: cover;">
+            <div class="view" style="background-image: url({% static 'img/carousel/wrist-watch.jpg' %}); background-repeat: no-repeat; background-size: cover;background-position:center">
 
             <!-- Mask & flexbox options-->
             <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -104,9 +105,9 @@
                     Aliquid neque minima itaque esse quia eos rem voluptatibus, unde amet ex.</strong>
                 </p>
 
-                <a  href="#" class="btn btn-outline-white btn-lg">
-                Start Shopping Now
-                </a>
+                <h2 class="text-white mx-auto text-decoration-underline border-bottom" style="width:500px">
+                    Accessories
+                </h2>
             </div>
             <!-- Content -->
 

@@ -33,7 +33,7 @@
                   <tbody>
                     {% for product in products %}
                     <tr>
-                      <td>{{ forloop.counter }}</td>
+                      <td>{{ page_obj.start_index|add:forloop.counter0 }}</td>
                       <td>{{ product.title }}</td>
                       <td>
                         <img src="{{ product.image1.url }}" alt="product_image" style="width:70px;height:70px">

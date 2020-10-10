@@ -46,6 +46,11 @@ class UserListView(LoginRequiredMixin,UserPassesTestMixin,ListView):
     paginate_by = 10
     order_by = ['is_admin']
 
+    def get_context_data(self, **kwargs):
+        context = super(UserListView,self).get_context_data(**kwargs)
+        context["id"] = 1
+        return context
+    
     def test_func(self):
         return self.request.user.is_admin 
 # USER CREATE VIEW

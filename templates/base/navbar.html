@@ -47,17 +47,6 @@
                 </li>
                
             {% endif %}
-            <li class="nav-item {% if request.path == cart_url %} active {% endif%}">
-                <a href="{{ cart_url }}" class="nav-link waves-effect">
-                    <span class="badge red z-depth-1 mr-1 cart-count"> 
-                        {% if request.session.cart_items_count > 0%} 
-                            {{ request.session.cart_items_count }} 
-                        {% else %} 0
-                        {% endif %}
-                    </span>
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-            </li>
             <!-- Dropdown -->
             {% if user.is_authenticated %}
             <li class="nav-item dropdown">
@@ -71,6 +60,18 @@
                 </div>
             </li>
             {% endif %}
+            <li class="nav-item {% if request.path == cart_url %} active {% endif%}">
+                <a href="{{ cart_url }}" class="nav-link waves-effect">
+                    <span class="badge red z-depth-1 mr-1 cart-count"> 
+                        {% if request.session.cart_items_count > 0%} 
+                            {{ request.session.cart_items_count }} 
+                        {% else %} 0
+                        {% endif %}
+                    </span>
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </li>
+            
         </ul>
 
         </div>

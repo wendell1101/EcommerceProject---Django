@@ -9,7 +9,7 @@ class HomeListView(ListView):
     model = Product
     template_name = 'pages/index.html'
     context_object_name = 'products'
-    paginate_by = 1
+    paginate_by = 8
     
 class ProductDetailView(DetailView):
     model = Product

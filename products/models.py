@@ -9,12 +9,9 @@ import os
 
 CATEGORY_CHOICES = (
     
-    ('shirt','Shirt'),
-    ('dress','Dress'),
-    ('shoes','Shoes'),
-    ('phone','Phone'),
     ('laptop','Laptop'),
-    ('accessories','Accessories'),
+    ('phone','Phone'),
+    ('accesories','Accessories'),
 )
 
 LABEL_CHOICES = (
