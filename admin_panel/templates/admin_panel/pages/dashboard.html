@@ -10,14 +10,17 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>150</h3>
-  
+                  <h3>{{ orders_count }}</h3>
+                  {% if orders_count > 1%}
                   <p>Orders</p>
+                  {% else %}
+                  <p>Order</p>
+                  {% endif %}
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{% url 'admin_panel:orders' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -25,14 +28,17 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-  
+                  <h3>{{ products_count }}<sup style="font-size: 20px"></sup></h3>
+                  {% if products_count > 1%}
                   <p>Products</p>
+                  {% else %}
+                  <p>Product</p>
+                  {% endif %}
                 </div>
                 <div class="icon">
                   <i class="fas fa-laptop"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{% url 'admin_panel:products' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -40,14 +46,18 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>{{ users_count }}</h3>
   
-                  <p>Customers</p>
+                  {% if users_count > 1%}
+                  <p>Users</p>
+                  {% else %}
+                  <p>User</p>
+                  {% endif %}
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{% url 'admin_panel:users' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -55,14 +65,18 @@
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3>{{ payments_count }}</h3>
   
+                  {% if payments_count > 1%}
+                  <p>Payments</p>
+                  {% else %}
                   <p>Payment</p>
+                  {% endif %}
                 </div>
                 <div class="icon">
                   <i class="far fa-credit-card"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{% url 'admin_panel:payments' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->

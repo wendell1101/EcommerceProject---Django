@@ -22,7 +22,7 @@ PAYMENT_TYPE = (
 class Order(models.Model):
     customer_profile     = models.ForeignKey(CustomerProfile, on_delete=models.CASCADE)
     order_id             = models.CharField(max_length=20)
-    cart                 = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    cart                 = models.ForeignKey(Cart, on_delete=models.RESTRICT, null=True, blank=True)
     billing_address      = models.ForeignKey(BillingAddress, on_delete=models.RESTRICT, null=True, blank=True, related_name='billing_address')
     shipping_address     = models.ForeignKey(ShippingAddress, on_delete=models.RESTRICT, null=True, blank=True, related_name='shipping_address')
     status               = models.CharField(max_length=120,default='created',choices = ORDER_STATUS)

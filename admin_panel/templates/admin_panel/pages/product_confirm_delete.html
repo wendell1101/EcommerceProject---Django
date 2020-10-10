@@ -1,0 +1,23 @@
+{% extends 'admin_panel/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <h2 class="text-lead">
+                Are you sure you want to delete "{{ product.title }}"? 
+            </h2>
+            <div class="text-muted">
+                <span>Summary:</span><br>
+                <p>Name: {{product.title}}</p>
+                <p>Description: {{product.description|truncatewords:30 }}</p>                
+            </div>
+           
+            
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="{% url 'admin_panel:products' %}" type="submit" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock content %}

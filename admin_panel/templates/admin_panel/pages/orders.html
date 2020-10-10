@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row card card-body">
         <div class="col-12">
+          {% include 'admin_panel/base/messages.html' %}
             <h4>Active Orders</h4>
         </div>
         <div class="col-12 ">
@@ -35,10 +36,7 @@
                       <td>PHP {{ order.cart.get_cart_total|floatformat:2 }}</td>
                       <td>{{ order.get_status_display }}</td>
                         <td>
-                            <a href="#">
-                                <i class="fas fa-trash text-danger mr-2"></i>
-                                <i class="fas fa-edit text-warning"></i>
-                            </a>
+                            <a href="{% url 'admin_panel:order_update' order.id %}"><i class="fas fa-edit text-warning"></i></a>
                         </td>
                      
                     </tr>
@@ -47,10 +45,10 @@
                 </table>
               </div>
             {% else %}
-            <h4 class="text-lead"> No results found </h4>
+            <h5 class="text-lead text-center text-muted"> No results found </h5>
             {% endif %}
         </div>
     </div>
-    
+    {% include 'base/pagination.html' %}
 </div>
 {% endblock content %}

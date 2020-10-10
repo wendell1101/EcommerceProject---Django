@@ -1,0 +1,50 @@
+{% extends 'admin_panel/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container">
+    {% url 'admin_panel:product_update' as product_update_url %}
+    {% url 'admin_panel:product_create' as product_create_url %}
+    <div class="col-lg-8 col-md-7 card card-body mx-auto" >
+        {% if request.path == product_create_url %}
+        <h3 class="text-center text-secondary mb-3">Create Product</h3>
+        {% else %}
+        <h3 class="text-center text-secondary mb-3">Update Product</h3>        
+        {% endif%}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    {{ form.category|as_crispy_field}}
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    {{ form.label|as_crispy_field}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    {{ form.title|as_crispy_field}}
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    {{ form.price|as_crispy_field}}
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col">
+                    <b>Description*</b><br>
+                    {% render_field form.description class="form-control" rows="5"%}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form.image1|as_crispy_field }}
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-info">Submit</button>
+            <a href="{% url 'admin_panel:products' %}" type="submit" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock content %}

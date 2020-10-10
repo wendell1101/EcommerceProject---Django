@@ -1,9 +1,10 @@
 {% load static %}
 {% url 'admin_panel:dashboard' as dashboard_url %}
-{% url 'admin_panel:customers' as customers_url %}
+{% url 'admin_panel:users' as users_url %}
 {% url 'admin_panel:orders' as orders_url %}
 {% url 'admin_panel:products' as products_url %}
 {% url 'admin_panel:payments' as payments_url %}
+{% url 'accounts:logout' as logout_url %}
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
 <!-- Left navbar links -->
@@ -17,19 +18,21 @@
     <li class="nav-item d-none d-sm-inline-block">
     <a href="#" class="nav-link">Contact</a>
     </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">Accounts</a>
+        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+        {% if user.is_admin %}
+        <a class="nav-link waves-effect" href="{% url 'index' %}">Go to Home</a>
+        {% endif%}
+        <a class="nav-link waves-effect" href="{{ logout_url }}">Logout</a>
+        </div>
+    </li>
+    {% endif %}
 </ul>
 
-<!-- SEARCH FORM -->
-<form class="form-inline ml-3">
-    <div class="input-group input-group-sm">
-    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-    <div class="input-group-append">
-        <button class="btn btn-navbar" type="submit">
-        <i class="fas fa-search"></i>
-        </button>
-    </div>
-    </div>
-</form>
+
 
 <!-- Right navbar links -->
 <ul class="navbar-nav ml-auto">      
@@ -46,34 +49,22 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-light-primary elevation-4">
 <!-- Brand Logo -->
-<a href="{% url 'index' %}" class="brand-link">
+<a href="{% url 'index' %}" class=" mx-auto">
+    <img src="{% static 'img/logo.png' %}" alt="cTech Logo" class="img-fluid" style=" width:100%;height:80px">
+</a>
+<!-- <a href="{% url 'index' %}" class="brand-link">
     <img src="{% static 'img/logo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">cTech</span>
-</a>
+</a> -->
 
 <!-- Sidebar -->
 <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-    <div class="image">
-        <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
-    </div>
-    <div class="info">
-        <a href="#" class="d-block">{{ user.get_full_name }}</a>
-    </div>
+    <div class="user-panel pt-2">
+        <p class="text-center text-lead font-weight-bold text-uppercase">{{ user.get_full_name }}</p>
     </div>
 
-    <!-- SidebarSearch Form -->
-    <div class="form-inline">
-    <div class="input-group" data-widget="sidebar-search">
-        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-        <button class="btn btn-sidebar">
-            <i class="fas fa-search fa-fw"></i>
-        </button>
-        </div>
-    </div>
-    </div>
+    
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
@@ -92,10 +83,10 @@
         </li>
         <!--customers-->
         <li class="nav-item">
-        <a href="{{ customers_url }}" class="nav-link {% if request.path == customers_url %}active{% endif %}">
+        <a href="{{ users_url }}" class="nav-link {% if request.path == users_url %} active {% endif %}">
             <i class="nav-icon fa fa-users"></i>    
             <p>
-            Customers
+            Users
             <i class="right fas fa-angle-left"></i>
             </p>
         </a>

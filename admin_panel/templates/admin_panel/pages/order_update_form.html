@@ -1,0 +1,19 @@
+{% extends 'admin_panel/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container">
+    <div class="col-lg-8 col-md-7 card card-body mx-auto" >
+        <h3 class="text-center text-secondary mb-3">Update Order</h3>
+        <form method="POST" >
+            {% csrf_token %}
+            Order ID:<b> {{ object.order_id }}</b>
+            {{ form|crispy }}
+            
+            
+            <button type="submit" class="btn btn-info">Submit</button>
+            <a href="{% url 'admin_panel:orders' %}" type="submit" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock content %}

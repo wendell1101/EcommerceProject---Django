@@ -31,11 +31,13 @@
         <h5>
           <strong>
             <a href="" class="dark-grey-text">{{ product.title }}</a>
+            {% if not product.label == 'none' %}
             <span class="badge badge-pill {{ product.get_label_color }}-color">{{ product.get_label_display }}</span>
+            {% endif %}
           </strong>
         </h5>
 
-        <h4 class="font-weight-bold blue-text">
+        <h4 class="font-weight-bold text-warning">
       
             {% if product.discount_percent %}
             <del class="text-muted">Php{{ product.price }}</del><br>

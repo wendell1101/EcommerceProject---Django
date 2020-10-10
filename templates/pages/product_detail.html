@@ -23,8 +23,10 @@
         <div class="p-4">
 
           <div class="mb-3">
+          
             <span class="badge purple mr-1">{{ object.get_category_display }}</span>          
             <span class="badge  mr-1 bg-info ">{{ object.get_label_display }} </span>
+        
             <span class="badge  mr-1 bg-danger ">{{ object.get_discount_percent|floatformat:0 }}% OFF </span>
           </div>
 

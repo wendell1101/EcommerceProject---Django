@@ -1,4 +1,5 @@
 {% load static %}
+{% url 'admin_panel:dashboard' as dashboard_url %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +9,16 @@
 <div class="wrapper">
   {% include 'admin_panel/base/header.html' %}
   <!-- Content Wrapper. Contains page content -->
+ 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            {% if request.path == dashboard_url %}
+            <h1 class="m-0">Dashboard</h1> 
+            {% endif %}
           </div><!-- /.col -->
           <div class="col-sm-6">
             
@@ -22,6 +26,7 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+  
     <!-- /.content-header -->
     {% block content %}{% endblock content %}
   </div>

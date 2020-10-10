@@ -1,0 +1,35 @@
+{% extends 'admin_panel/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container">
+    <div class="col-lg-8 col-md-7 card card-body mx-auto" >
+        <h3 class="text-center text-secondary mb-3">Create User</h3>
+        <form method="POST" >
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    {{ form.first_name|as_crispy_field}}
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    {{ form.last_name|as_crispy_field}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ form.email|as_crispy_field}}
+                </div>
+                <div class="col-12">
+                    <div class="col-lg-6 col-md-6">
+                        {{ form.is_admin|as_crispy_field}}
+                    </div>
+                </div>
+            </div>
+            
+            
+            <button type="submit" class="btn btn-danger">Submit</button>
+            <a href="{% url 'admin_panel:users' %}" type="submit" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock content %}

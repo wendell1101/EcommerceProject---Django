@@ -8,7 +8,7 @@ import random
 import os
 
 CATEGORY_CHOICES = (
-    ('none','None'),
+    
     ('shirt','Shirt'),
     ('dress','Dress'),
     ('shoes','Shoes'),
@@ -36,9 +36,7 @@ class Product(models.Model):
     description         = models.TextField()
     timestamp           = models.DateTimeField(auto_now_add=True)
     image1              = models.ImageField(default="default_product_image.jpg", upload_to="products", blank=True)
-    image2              = models.ImageField(default="default_product_image.jpg", upload_to="products", blank=True)    
-    image3              = models.ImageField(default="default_product_image.jpg", upload_to="products", blank=True)
-    image4              = models.ImageField(default="default_product_image.jpg", upload_to="products", blank=True)
+   
     
     def __str__(self):
         return self.title
@@ -79,7 +77,7 @@ class Product(models.Model):
         elif self.label == 'best_seller':
             return 'success'
         else:
-            pass
+            return ""
     
 #signals
 def product_pre_save_receiver(sender,instance,*args,**kwargs):

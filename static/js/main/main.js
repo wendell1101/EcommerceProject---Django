@@ -1,5 +1,17 @@
+
 $(document).ready(()=>{
+
     //ADD OR REMOVE TO CART
+    const btnDeleteError = $('.btn-delete-error');
+    btnDeleteError.click((e)=>{
+        $.alert({
+            title: "Oops!",
+            content: "You can't delete this product as of the moment",
+            theme: "modern",
+          })
+    })
+
+
     let updateCartForm = $('.cart-form');
     const removeCartBtn = $('.remove-cart-btn');
     const addCartBtn = $('.add-cart-btn');
