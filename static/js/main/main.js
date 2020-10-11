@@ -1,7 +1,41 @@
 
 $(document).ready(()=>{
+    //automatic searching
+    // Auto Search
+    let searchForm = $(".search-form")
+    let searchInput = searchForm.find("[name='q']") // input name='q'
+    let typingTimer;
+    let typingInterval = 500 // .5 seconds
+    let searchBtn = searchForm.find("[type='submit']")
+    searchInput.keyup(function(event){
+      // key released
+      clearTimeout(typingTimer)
 
-    //ADD OR REMOVE TO CART
+      typingTimer = setTimeout(perfomSearch, typingInterval)
+    })
+
+    searchInput.keydown(function(event){
+      // key pressed
+      clearTimeout(typingTimer)
+    })
+
+    function displaySearching(){
+      searchBtn.addClass("disabled")
+      searchBtn.html("<i class='fa fa-spin fa-spinner'></i>")
+    }
+
+    function perfomSearch(){
+      displaySearching()
+      let query = searchInput.val()
+      setTimeout(function(){
+        window.location.href='/search/?q=' + query
+      }, 1000)
+      
+    }
+
+
+
+    // admin deleting of product
     const btnDeleteError = $('.btn-delete-error');
     btnDeleteError.click((e)=>{
         $.alert({
@@ -11,14 +45,12 @@ $(document).ready(()=>{
           })
     })
 
-
+    //ADD OR REMOVE TO CART
     let updateCartForm = $('.cart-form');
     const removeCartBtn = $('.remove-cart-btn');
     const addCartBtn = $('.add-cart-btn');
     const cartBtn = $('.cart-btn');
     const cartItemCount = $('.cart-count');
-
-
 
 
 

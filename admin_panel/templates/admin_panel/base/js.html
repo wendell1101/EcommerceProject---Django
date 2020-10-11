@@ -39,3 +39,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
 <script src="{% static 'js/main/main.js' %}"></script>
+
+
+<script>
+    //pie
+  let orders_count = "{{ orders_count }}";
+  let products_count = "{{ products_count }}";
+  let users_count = "{{ users_count }}";
+  let payments_count = "{{ payments_count }}";
+  var ctxP = document.getElementById("pieChart").getContext('2d');
+  var myPieChart = new Chart(ctxP, {
+  type: 'pie',
+  data: {
+  labels: ["Orders", "Users", "Products", "Payments",],
+
+  datasets: [{
+  data: [orders_count,users_count, products_count, payments_count],
+  backgroundColor: ["#fba55f", "#ffc107", "#28a745", "#dc3545",],
+  // hoverBackgroundColor: ["#f8a969", "#5AD3D1", "#FFC870", "#A8B3C5",]
+  }]
+  },
+  options: {
+  responsive: true
+  }
+  });
+</script>

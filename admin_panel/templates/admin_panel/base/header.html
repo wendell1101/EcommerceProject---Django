@@ -13,18 +13,15 @@
     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-    <a href="index3.html" class="nav-link">Home</a>
-    </li>
-    <li class="nav-item d-none d-sm-inline-block">
-    <a href="#" class="nav-link">Contact</a>
+    <a href="{% url 'index' %}" class="nav-link">Home</a>
     </li>
     {% if user.is_authenticated %}
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown" style="cursor: pointer;">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">Accounts</a>
-        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu dropdown-primary account-dropdown" aria-labelledby="navbarDropdownMenuLink">
         {% if user.is_admin %}
-        <a class="nav-link waves-effect" href="{% url 'index' %}">Go to Home</a>
+        <a class="nav-link waves-effect" href="{% url 'index' %}">Go to home</a>
         {% endif%}
         <a class="nav-link waves-effect" href="{{ logout_url }}">Logout</a>
         </div>

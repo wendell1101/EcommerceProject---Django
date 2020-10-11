@@ -2,8 +2,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="row container mx-auto" style="margin-top:100px">  
-    <div class="col-md-5 mx-auto">
+<div class="row container mx-auto" style="margin-top:100px;min-height:55vh">  
+    <div class="col-md-5 mx-auto my-auto shadow card p-3">
         {% include 'base/messages.html' %}
         <h2>Login Now</h2>
         <form action="{% url 'accounts:login' %}" method="POST">

@@ -134,7 +134,7 @@ class ProductDeleteView(SuccessMessageMixin,LoginRequiredMixin,UserPassesTestMix
 class ProductCreateView(SuccessMessageMixin,LoginRequiredMixin,UserPassesTestMixin,CreateView):
     model = Product
     template_name = 'admin_panel/pages/product_create_form.html'
-    fields = ['title', 'price', 'category', 'label', 'description', 'image1']
+    fields = ['title', 'price','discount_percent', 'category', 'label', 'description', 'image1']
     success_url = reverse_lazy('admin_panel:products')
     success_message = 'An item has been created successfully'
     

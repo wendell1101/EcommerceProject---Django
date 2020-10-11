@@ -45,12 +45,24 @@ header,
   position:relative;
   height:0;
   }
-  .map-container iframe{
+.map-container iframe{
   left:0;
   top:0;
   height:100%;
   width:100%;
   position:absolute;
-  }
+}
+.account-dropdown{
+  padding:3px;
+}
+.account-dropdown a{
+  display:flex;
+  align-items: center;
+  padding:2px;
+}
+.account-dropdown a:hover{
+  background:#e6e3e1!important;
+}
+
 
 

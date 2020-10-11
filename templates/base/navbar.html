@@ -49,10 +49,10 @@
             {% endif %}
             <!-- Dropdown -->
             {% if user.is_authenticated %}
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">Accounts</a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu dropdown-primary account-dropdown" aria-labelledby="navbarDropdownMenuLink">
                 {% if user.is_admin %}
                 <a class="nav-link waves-effect" href="{{ admin_url }}">Go to Admin</a>
                 {% endif%}

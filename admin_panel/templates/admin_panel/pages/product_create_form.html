@@ -38,6 +38,12 @@
             </div>
             <div class="row">
                 <div class="col">
+                    <b>Discount*(In decimal form)</b><br>
+                    {% render_field form.discount_percent class="form-control" %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
                     {{ form.image1|as_crispy_field }}
                 </div>
             </div>

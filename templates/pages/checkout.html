@@ -24,9 +24,8 @@
               <th scope="col">#</th>
               <th scope="col">Name</th>
               <th scope="col">Image</th>
-              <th scope="col">Quantity</th>
               <th scope="col">Price</th>
-              <th scope="col">Total</th>
+             
             </tr>
           </thead>
           <tbody>
@@ -37,19 +36,13 @@
               <td>
                   <img src="{{ product.image1.url }}" alt="product_image" style="width:70px;height:70px">
               </td>
-              <td>                  
-                  <span class="ml-1 mr-1 quantity">{{ product.quantity }}</span>
-              </td>
+              
               <td>
                   {% if product.discount_percent %}
                       PHP {{ product.get_discounted_price|floatformat:2 }}
                   {% else %}
                       PHP {{ product.price|floatformat:2 }}
                   {% endif %}
-              </td>
-            
-              <td>
-                  <span class="total">PHP {{product.get_final_total_price|floatformat:2 }}</span>                  
               </td>
               
               

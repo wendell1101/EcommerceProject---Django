@@ -2,12 +2,28 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="row container mx-auto" style="margin-top:100px">
-    <div class="col-md-5">
+<div class="row container mx-auto" style="margin-top:100px;min-height:55vh">  
+    <div class="col-md-5 mx-auto shadow card p-3">
+        {% include 'base/messages.html' %}
         <h2>Register Now</h2>
-        <form action="{% url 'accounts:register' %}" method="POST">{% csrf_token %}       
-            {{ form|crispy }}
-            <button type="submit">Register</button>
+        <form action="{% url 'accounts:register' %}" method="POST">
+            {% csrf_token %}   
+            <div class="row">
+                <div class="col">
+                    {{ form.first_name|as_crispy_field }}
+                </div>
+                <div class="col">
+                    {{ form.last_name|as_crispy_field }}
+                </div>
+            </div>  
+            <div class="row">
+                <div class="col-md-12">{{ form.email|as_crispy_field }}</div>
+                <div class="col-md-12">{{ form.password1|as_crispy_field }}</div>
+                <div class="col-md-12">{{ form.password2|as_crispy_field }}</div>
+            </div>
+            
+            <span>Already registered? </span><a href="{% url 'accounts:login' %}">Login Here</a><br>
+            <button type="submit" class="btn btn-primary btn-sm">Register</button>
         </form>
     </div>
 </div>
