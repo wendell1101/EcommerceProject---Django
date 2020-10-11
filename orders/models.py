@@ -26,8 +26,8 @@ class Order(models.Model):
     billing_address      = models.ForeignKey(BillingAddress, on_delete=models.RESTRICT, null=True, blank=True, related_name='billing_address')
     shipping_address     = models.ForeignKey(ShippingAddress, on_delete=models.RESTRICT, null=True, blank=True, related_name='shipping_address')
     status               = models.CharField(max_length=120,default='created',choices = ORDER_STATUS)
-    shipping_price       = models.FloatField()
-    order_total          = models.FloatField()
+    shipping_price       = models.DecimalField(default=50.00,max_digits=100, decimal_places=2)
+    order_total          = models.DecimalField(default=0.00, max_digits=100, decimal_places=2)
     ordered_date         = models.DateTimeField(auto_now_add=True)    
     active               = models.BooleanField(default=True) #if shipped return false
     payment_type         = models.CharField(max_length=20, choices = PAYMENT_TYPE, default='cod')
