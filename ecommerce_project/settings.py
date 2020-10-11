@@ -25,7 +25,10 @@ SECRET_KEY = '3u*l2cu72q2q+8agm+h=x5l&w$f!xsw*iq@b%3uyi%o!-ypr-('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['c-tech.herokuapp.com']
+ALLOWED_HOSTS = [
+    # 'c-tech.herokuapp.com',
+    # 'localhost:8000',
+]
 
 
 # Application definition
@@ -136,8 +139,13 @@ USE_TZ = True
 AUTH_USER_MODEL = 'accounts.MyUser'
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -145,5 +153,5 @@ LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'accounts:login'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
