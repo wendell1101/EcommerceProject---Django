@@ -25,7 +25,7 @@ SECRET_KEY = '3u*l2cu72q2q+8agm+h=x5l&w$f!xsw*iq@b%3uyi%o!-ypr-('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://localhost:8000/','https://c-tech.herokuapp.com/']
 
 
 # Application definition
