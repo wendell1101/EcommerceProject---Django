@@ -14,7 +14,7 @@
 
 /* Component containers
 ----------------------------------*/
-.ui-widget {
+/* .ui-widget {
 	font-family: Arial,Helvetica,sans-serif;
 	font-size: 1em;
 }
@@ -440,4 +440,4 @@ a.ui-button:active,
 .ui-widget-shadow {
 	-webkit-box-shadow: 0px 0px 5px #666666;
 	box-shadow: 0px 0px 5px #666666;
-}
+} */
