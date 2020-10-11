@@ -41,16 +41,7 @@ def cart_update(request, slug):
 
         #ajax
         if request.is_ajax():
-            products = [{
-                "id" : x.id,
-                "name": x.title,
-                "image": x.image1.url,
-                "quantity": x.quantity,
-                "price":x.get_final_price(),
-                "discount": x.get_discount_percent(),
-                "total": x.get_final_total_price(),
-            } 
-            for x in cart_obj.products.all()]
+           
             data = {
                 "added": added,
                 'removed': not added,
