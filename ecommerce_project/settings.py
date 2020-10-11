@@ -27,7 +27,7 @@ SECRET_KEY = '3u*l2cu72q2q+8agm+h=x5l&w$f!xsw*iq@b%3uyi%o!-ypr-('
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'c-tech.herokuapp.com',
+    # 'c-tech.herokuapp.com',
     # 'localhost:8000',
 ]
 
