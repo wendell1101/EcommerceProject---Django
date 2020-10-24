@@ -3,7 +3,7 @@
     <div class="card">
       <!--Card image-->
       {% if product.get_discount_percent %}
-      <span class="bg-light border text-dark" style="color:#fba55f">{{ product.get_discount_percent|floatformat:0 }}% OFF</span>
+       <span class="border text-dark" style="color:#fba55f;">{{ product.get_discount_percent|floatformat:0 }}% OFF</span>
       {% endif %}
       <div class="view overlay">
         <img src="{{ product.image1.url }}" class="card-img-top"

@@ -10,6 +10,39 @@ class HomeListView(ListView):
     template_name = 'pages/index.html'
     context_object_name = 'products'
     # paginate_by = 8
+
+#laptop category
+
+class LaptopListView(ListView):
+    model = Product
+    template_name = 'pages/laptop_list.html'    
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(LaptopListView, self).get_context_data(*args, **kwargs)
+        context["products"] = Product.objects.filter(category="laptop")
+        return context
+
+#phone category
+class PhoneListView(ListView):
+    model = Product
+    template_name = 'pages/phone_list.html'    
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(PhoneListView, self).get_context_data(*args, **kwargs)
+        context["products"] = Product.objects.filter(category="phone")
+        return context
+    
+#Accesories category
+class AccessoryListView(ListView):
+    model = Product
+    template_name = 'pages/accessories.html'    
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(AccessoryListView, self).get_context_data(*args, **kwargs)
+        context["products"] = Product.objects.filter(category="accesories")
+        return context
+    
+
     
 class ProductDetailView(DetailView):
     model = Product

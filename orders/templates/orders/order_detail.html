@@ -37,7 +37,7 @@
                 {% endif %}
             </div>
             <hr>
-            <!-- {% if order.cart.products.all%}
+            {% if order.cart.products.all%}
             <ul class="row">
                 {% for product in order.cart.products.all %}
                 <li class="col-md-4">
@@ -52,15 +52,15 @@
                                     PHP {{ product.price|floatformat:2 }}
                                 {% endif %}
                             </span><br>
-                            <span class="text-muted">
+                            <!-- <span class="text-muted">
                                 Qty. {{ product.quantity }}
-                            </span>
+                            </span> -->
                         </figcaption>
                     </figure>
                 </li>
                 {% endfor %}
             </ul>
-            {% endif %} -->
+            {% endif %}
             <hr>
             <a href="{% url 'order:list' %}" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to orders</a>
         </div>
