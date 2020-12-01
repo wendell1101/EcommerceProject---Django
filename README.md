@@ -1,4 +1,4 @@
-** Ecommerce Project made using Django **
+**Ecommerce Project made using Django**
 
 **Features**
 - Cart Functionality
