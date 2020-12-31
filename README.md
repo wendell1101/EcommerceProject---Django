@@ -1,6 +1,6 @@
 **Ecommerce Project made using Django**
 
-<p><image src="./static/img/app_img.png" width="900" height="400" /></p>
+<p><image src="static/img/app_img.PNG" width="900" height="400" /></p>
 
 **Features**
 - Cart Functionality
