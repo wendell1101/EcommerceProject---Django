@@ -1,5 +1,7 @@
 **Ecommerce Project made using Django**
 
+<p><image src="./static/img/app_img.png" width="900" height="400" /></p>
+
 **Features**
 - Cart Functionality
 - Admin-panel using AdminLTEv3
